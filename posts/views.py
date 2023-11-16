@@ -25,7 +25,13 @@ posts=[
 
 
 def index(request:HttpRequest):
-    return HttpResponse("Hello Django")
+    name= request.GET.get("name") or "world"
+    
+    context={
+        "name": name
+    }
+
+    return render(request,'index.html',context)
 
 
 def greet(request:HttpRequest):
