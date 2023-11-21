@@ -25,10 +25,12 @@ posts=[
 
 
 def index(request:HttpRequest):
-    name= request.GET.get("name") or "world"
+    name= request.GET.get("name", "posts") or "world"
+    #wen you make changes and go to the browser there is changes to the input
     
     context={
-        "name": name
+        "name": name,
+        "posts": posts
     }
 
     return render(request,'index.html',context)
